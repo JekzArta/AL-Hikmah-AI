@@ -6,6 +6,7 @@
 # Data lokal & log (bisa berisi teks sensitif)
 data/*
 !data/.gitkeep
+!data/dummy/
 logs/
 *.log
 *.db
