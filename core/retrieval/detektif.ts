@@ -23,6 +23,7 @@ export interface OpsiDetektif {
   rrfK: number;
   jumlah: number; // jumlah_kandidat_detektif
   acak?: () => number; // untuk baseline acak (bisa diberi seed)
+  cacheKueri?: Map<string, number[]>; // embedding kueri yang sama tidak dibayar dua kali dalam satu run
 }
 
 export interface HasilDetektif {
@@ -61,8 +62,12 @@ export async function cari(pertanyaan: string, mode: ModeCari, o: OpsiDetektif):
   }
   if (mode === "embedding" || mode === "hybrid") {
     if (!o.klien) throw new Error("mode embedding/hybrid butuh klien OpenRouter");
-    const h = await o.klien.embed([pertanyaan], o.modelEmbedding, o.dimensi, "embedding_kueri");
-    jalur.emb = await o.repo.cariEmbedding(h.vektor[0]!, o.jumlah);
+    let v = o.cacheKueri?.get(pertanyaan);
+    if (!v) {
+      v = (await o.klien.embed([pertanyaan], o.modelEmbedding, o.dimensi, "embedding_kueri")).vektor[0]!;
+      o.cacheKueri?.set(pertanyaan, v);
+    }
+    jalur.emb = await o.repo.cariEmbedding(v, o.jumlah);
   }
 
   return { kueriPolos, kandidat: rrf(jalur, o.rrfK).slice(0, o.jumlah), jalur };

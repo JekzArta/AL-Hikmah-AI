@@ -12,7 +12,9 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "uji-parser": "NODE_USE_ENV_PROXY=1 tsx cli/uji-parser.ts",
-    "ingest": "NODE_USE_ENV_PROXY=1 tsx cli/ingest.ts"
+    "ingest": "NODE_USE_ENV_PROXY=1 tsx cli/ingest.ts",
+    "cari": "NODE_USE_ENV_PROXY=1 tsx cli/cari.ts",
+    "ablation": "NODE_USE_ENV_PROXY=1 tsx cli/ablation.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
