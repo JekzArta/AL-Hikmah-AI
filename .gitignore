@@ -1,0 +1,24 @@
+# Rahasia — JANGAN pernah di-commit
+.env
+.env.*
+!.env.example
+
+# Data lokal & log (bisa berisi teks sensitif)
+data/*
+!data/.gitkeep
+logs/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Folder data berlisensi tidak jelas (spek §14.7 poin 7)
+**/lisensi_tidak_jelas_jangan_rilis/
+
+# Laporan mentah boleh di-commit, kecuali yang ditandai sensitif
+reports/**/*.sensitif.*
+
+node_modules/
+dist/
+coverage/
+.DS_Store
