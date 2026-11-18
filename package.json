@@ -11,7 +11,8 @@
     "cek": "NODE_USE_ENV_PROXY=1 tsx cli/cek.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "uji-parser": "NODE_USE_ENV_PROXY=1 tsx cli/uji-parser.ts"
+    "uji-parser": "NODE_USE_ENV_PROXY=1 tsx cli/uji-parser.ts",
+    "ingest": "NODE_USE_ENV_PROXY=1 tsx cli/ingest.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",

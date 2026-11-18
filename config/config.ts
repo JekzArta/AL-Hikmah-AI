@@ -24,6 +24,9 @@ export const SkemaKonfigurasi = z.object({
     penyusun_ulang: z.string().nullable(),
     penjelas: z.string().nullable(),
     detektor_krisis_kedua: z.string().nullable(),
+    // panjang vektor embedding; ✅ terverifikasi 4096 (default qwen3-embedding-8b, 18 Nov 2026).
+    // Ganti angka/model = embed ulang SEMUA + migrasi kolom vector(N) + ulang set uji.
+    dimensi_embedding: z.number().int().positive(),
   }),
   backend_keputusan: z.enum(["jev", "llm"]),
 
@@ -52,6 +55,8 @@ export const SkemaKonfigurasi = z.object({
   log: z.object({
     simpan_teks_sensitif: z.boolean(),
     folder: z.string(),
+    // log lebih tua dari ini dihapus oleh `hapusLogLama` (aturan produk = keputusan tim/hukum)
+    retensi_hari: z.number().int().positive(),
   }),
 
   biaya: z.object({
@@ -73,6 +78,7 @@ export const konfigurasi: Konfigurasi = SkemaKonfigurasi.parse({
     penyusun_ulang: "z-ai/glm-5.3-flash", // 💡 titik mulai spek §5.2; ❓ dipilih lewat uji
     penjelas: null, // ❓ dipilih lewat adu model di Fase 3 (paling jarang melanggar)
     detektor_krisis_kedua: null, // ❓ LLM murah, dipilih di Fase 2/4
+    dimensi_embedding: 4096,
   },
   backend_keputusan: "jev", // ✅ Jev dipilih (spek §5.2); "llm" = cadangan pembanding
   retrieval: {
@@ -89,6 +95,6 @@ export const konfigurasi: Konfigurasi = SkemaKonfigurasi.parse({
     ambang_lift_persen_konteks: 60,
     ambang_keyakinan_jev: null,
   },
-  log: { simpan_teks_sensitif: false, folder: "logs" },
+  log: { simpan_teks_sensitif: false, folder: "logs", retensi_hari: 30 },
   biaya: { batas_usd_per_run: 0.5 },
 });
