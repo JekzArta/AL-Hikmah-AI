@@ -7,6 +7,7 @@
 import { existsSync } from "node:fs";
 import "dotenv/config";
 import { konfigurasi } from "../config/config.js";
+import { urlDasarSupabase } from "../core/repositori/supabase.js";
 import { cekVariabel, cekVersiNode, formatHasil, ringkasInfoKunci, sensor, type HasilCek } from "./cek-lib.js";
 
 const TIMEOUT_MS = 15_000;
@@ -43,14 +44,22 @@ async function cekSupabase(): Promise<HasilCek> {
   }
   let host = "<project>.supabase.co";
   try {
-    host = new URL(urlSupabase).host;
-    const res = await fetch(`${urlSupabase.replace(/\/$/, "")}/rest/v1/`, {
+    const u = new URL(urlSupabase);
+    host = u.host;
+    const catatanPath = u.pathname.replace(/\/+$/, "") ? ` (catatan: SUPABASE_URL berisi path "${u.pathname}"; cukup https://${host} — kode memakai origin saja)` : "";
+    // Uji sungguhan: baca 1 baris tabel `sumber` (bukan sekadar "server menjawab").
+    const res = await fetch(`${urlDasarSupabase(urlSupabase)}/rest/v1/sumber?select=id&limit=1`, {
       headers: { apikey: kunciSupabase, Authorization: `Bearer ${kunciSupabase}` },
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     if (res.status === 401 || res.status === 403) return { nama, status: "GAGAL", pesan: `HTTP ${res.status} — kunci ditolak` };
     if (res.status >= 500) return { nama, status: "GAGAL", pesan: `HTTP ${res.status} — proyek mungkin sedang di-pause (free tier)` };
-    return { nama, status: "OK", pesan: `terhubung ke ${host} (HTTP ${res.status})` };
+    if (res.status === 200) return { nama, status: "OK", pesan: `terhubung ke ${host}, tabel terbaca${catatanPath}` };
+    const isi = await res.text();
+    if (/PGRST205|Could not find the table/i.test(isi)) {
+      return { nama, status: "PERINGATAN", pesan: `terhubung ke ${host}, tapi tabel belum ada — jalankan supabase/migrations/ di SQL Editor${catatanPath}` };
+    }
+    return { nama, status: "GAGAL", pesan: `HTTP ${res.status} dari ${host}${catatanPath}` };
   } catch (err) {
     return { nama, status: "GAGAL", pesan: pesanJaringan(host, err) };
   }

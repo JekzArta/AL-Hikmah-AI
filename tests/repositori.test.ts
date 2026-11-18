@@ -45,3 +45,12 @@ describe("RepositoriMemori: buat, isi, baca, hapus", () => {
     expect(await r.hashEmbedding(["DUMMY-001", "X"])).toEqual(new Map([["DUMMY-001", "h1"], ["X", null]]));
   });
 });
+
+import { urlDasarSupabase } from "../core/repositori/supabase.js";
+describe("urlDasarSupabase", () => {
+  it("menerima alamat dasar maupun alamat REST lengkap", () => {
+    expect(urlDasarSupabase("https://abc.supabase.co")).toBe("https://abc.supabase.co");
+    expect(urlDasarSupabase("https://abc.supabase.co/rest/v1/")).toBe("https://abc.supabase.co");
+    expect(urlDasarSupabase(" https://abc.supabase.co/ ")).toBe("https://abc.supabase.co");
+  });
+});

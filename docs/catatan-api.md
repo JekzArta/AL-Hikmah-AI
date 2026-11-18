@@ -13,6 +13,12 @@ Bagian ini **menang** atas bagian [R] di bawahnya.
 | Kandidat teks | `deepseek/deepseek-v4.1-flash` | 1.048.576 | $0,051 / $0,567 | juga snapshot `deepseek/deepseek-v4.1-flash-1017` ($0,036 / $0,50) |
 | Kandidat teks | `z-ai/glm-5.3-flash` | 1.048.576 | **$0,15 / $0,50** | **lebih mahal dari spek** ($0,075/$0,25) |
 
+### Embeddings: dipanggil langsung (Fase 1, 18 Nov 2026) ✅
+- `POST /api/v1/embeddings` `{model, input: string[]}` → `{object:"list", data:[{object, embedding:number[], index}], model:"Qwen/Qwen3-Embedding-8B", usage:{prompt_tokens, total_tokens, cost, is_byok, cost_details}, provider, id}`. Rekaman: `tests/fixtures/rekaman/embeddings-qwen3-8b.json`.
+- **Dimensi default 4096** (terverifikasi). Parameter `dimensions: 1024` **berfungsi** (vektor 1024). Prototipe memakai 4096 penuh, tanpa indeks (scan persis di pgvector).
+- `usage.cost` ada → dipakai pencatat biaya. 11 token ≈ $1,1e-7.
+- ⚠️ **Provider berganti antar panggilan** (panggilan 1: DeepInfra, panggilan 2: Nebius). Vektor dari provider berbeda bisa sedikit beda (kuantisasi/implementasi). Provider dicatat di keluaran `ingest`. 💡 Bila ablation/data asli menunjukkan ketidakstabilan, kunci provider (`provider.order` + `allow_fallbacks:false`) — nama provider diambil dari respons, bukan ditebak.
+
 Catatan: semua kandidat teks mencantumkan `structured_outputs`. Daftar model biasa (`/api/v1/models` tanpa filter) **tidak**
 memuat reranker dan Jev; harus pakai `?output_modalities=all`. Endpoint rerank/decisions sendiri belum dipanggil:
 bentuk request/response direkam sebagai fixture saat Fase 1/2.

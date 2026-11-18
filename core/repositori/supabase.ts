@@ -23,6 +23,14 @@ function periksa<T>(r: { data: T | null; error: { message: string; code?: string
   return r.data as T;
 }
 
+/**
+ * supabase-js butuh alamat DASAR proyek (https://<ref>.supabase.co). Bila yang diisi
+ * alamat REST lengkap (…/rest/v1/), ambil origin-nya saja.
+ */
+export function urlDasarSupabase(url: string): string {
+  return new URL(url.trim()).origin;
+}
+
 function potong<T>(xs: T[], n = UKURAN_BATCH): T[][] {
   const hasil: T[][] = [];
   for (let i = 0; i < xs.length; i += n) hasil.push(xs.slice(i, i + n));
@@ -33,7 +41,7 @@ export class RepositoriSupabase implements Repositori {
   private readonly db: SupabaseClient;
 
   constructor(url: string, kunciServer: string) {
-    this.db = createClient(url, kunciServer, { auth: { persistSession: false, autoRefreshToken: false } });
+    this.db = createClient(urlDasarSupabase(url), kunciServer, { auth: { persistSession: false, autoRefreshToken: false } });
   }
 
   static dariEnv(env: NodeJS.ProcessEnv = process.env): RepositoriSupabase {
