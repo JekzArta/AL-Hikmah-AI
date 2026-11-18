@@ -1,0 +1,6 @@
+{
+  "_catatan": "Rekaman respons asli POST /api/v1/embeddings, 18 Nov 2026. Vektor DIPOTONG jadi 3 angka agar berkas kecil; panjang asli 4096 (tanpa `dimensions`). Bentuk lain apa adanya.",
+  "request": { "model": "qwen/qwen3-embedding-8b", "input": ["kalimat uji kabel satu", "dua"] },
+  "status": 200,
+  "response": {"object":"list","data":[{"object":"embedding","embedding":[0.005973322782665491,-0.002913815900683403,0.013811487704515457],"index":0},{"object":"embedding","embedding":[0.029223652556538582,0.02670850232243538,0.015929285436868668],"index":1}],"model":"Qwen/Qwen3-Embedding-8B","usage":{"prompt_tokens":11,"total_tokens":11,"cost":1.1e-7,"is_byok":false,"cost_details":{"upstream_inference_cost":1.1e-7,"upstream_inference_prompt_cost":1.1e-7,"upstream_inference_completions_cost":0}},"provider":"DeepInfra","id":"gen-emb-1794984893-lGr0QX25fkX6nujqUmZx"}
+}
