@@ -1,6 +1,25 @@
 # Catatan API (Fase 0)
 
-> **Status: SEMENTARA.** Ditulis 18 Nov 2026. Dari container sesi ini, openrouter.ai dan docs.typesafe.ai **diblokir
+## ✅ Terverifikasi langsung (18 Nov 2026, `GET /api/v1/models?output_modalities=all`)
+
+Bagian ini **menang** atas bagian [R] di bawahnya.
+
+| Peran | Slug | Konteks | Harga in / out per 1M | Catatan |
+|---|---|---|---|---|
+| Embedding | `qwen/qwen3-embedding-8b` | 40.960 | $0,01 / – | modalitas `embeddings` |
+| Reranker | `mongodb/rerank-3` | 32.000 | listing menulis `0` / `0` | **bukan `voyageai/`**; Voyage kini di bawah MongoDB. Cara penagihan rerank **[TV]**, cek `usage.cost` di panggilan pertama |
+| Keputusan | `typesafe/jev-1.14` | 262.144 | $0,042 / $0 | modalitas `decisions`; juga ada `typesafe/jev-1.13`, `~typesafe/jev-latest` (jangan saat uji) |
+| Kandidat teks | `anthropic/claude-haiku-5.5` | 1.000.000 | $0,10 / $0,50 | mendukung `structured_outputs` |
+| Kandidat teks | `deepseek/deepseek-v4.1-flash` | 1.048.576 | $0,051 / $0,567 | juga snapshot `deepseek/deepseek-v4.1-flash-1017` ($0,036 / $0,50) |
+| Kandidat teks | `z-ai/glm-5.3-flash` | 1.048.576 | **$0,15 / $0,50** | **lebih mahal dari spek** ($0,075/$0,25) |
+
+Catatan: semua kandidat teks mencantumkan `structured_outputs`. Daftar model biasa (`/api/v1/models` tanpa filter) **tidak**
+memuat reranker dan Jev; harus pakai `?output_modalities=all`. Endpoint rerank/decisions sendiri belum dipanggil:
+bentuk request/response direkam sebagai fixture saat Fase 1/2.
+
+---
+
+> **Status bagian di bawah: SEMENTARA.** Ditulis 18 Nov 2026. Dari container sesi ini, openrouter.ai dan docs.typesafe.ai **diblokir
 > kebijakan jaringan**, jadi semua isi di bawah berasal dari **ringkasan hasil pencarian web** atas halaman resmi
 > openrouter.ai, **bukan bacaan langsung** halamannya. Wajib diverifikasi ulang begitu `openrouter.ai` diizinkan:
 > panggil `GET /api/v1/models` dan rekam satu request/response nyata per endpoint sebagai fixture.

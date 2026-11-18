@@ -65,13 +65,14 @@ export const konfigurasi: Konfigurasi = SkemaKonfigurasi.parse({
   mode: "prototipe",
   penyimpanan: { backend: "supabase" },
   model: {
-    embedding: null,
-    reranker: null,
-    keputusan_jev: null,
-    keputusan_llm: null,
-    penyusun_ulang: null,
-    penjelas: null,
-    detektor_krisis_kedua: null,
+    // Slug terverifikasi di daftar model OpenRouter, 18 Nov 2026 (docs/catatan-api.md).
+    embedding: "qwen/qwen3-embedding-8b",
+    reranker: "mongodb/rerank-3", // Voyage rerank-3 (namespace OpenRouter: mongodb/)
+    keputusan_jev: "typesafe/jev-1.14", // versi dikunci; jangan ~typesafe/jev-latest
+    keputusan_llm: null, // "LLM murah" ❓ dipilih lewat uji (Fase 2)
+    penyusun_ulang: "z-ai/glm-5.3-flash", // 💡 titik mulai spek §5.2; ❓ dipilih lewat uji
+    penjelas: null, // ❓ dipilih lewat adu model di Fase 3 (paling jarang melanggar)
+    detektor_krisis_kedua: null, // ❓ LLM murah, dipilih di Fase 2/4
   },
   backend_keputusan: "jev", // ✅ Jev dipilih (spek §5.2); "llm" = cadangan pembanding
   retrieval: {
