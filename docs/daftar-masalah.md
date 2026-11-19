@@ -26,8 +26,9 @@ Irisan prototipe: pinjol, paylater (label regional), jual beli online. Judi onli
 | R2-03 | Paylater | Paylater (beli sekarang, bayar nanti, biaya tambahan) | dari: "nah kan paylater itu beli dulu bayar nanti, kalo COD sistem hukum di islam sama kah?…" | dipecah dari pertanyaan perbandingan (usulan Claude); label fatwa regional |
 | R2-04 | Jual beli online | COD (bayar di tempat) | dari pertanyaan yang sama | dipecah (usulan Claude) |
 
-### Cadangan (belum masuk irisan)
-| Usulan | Pertanyaan asli | Alasan cadangan |
-|---|---|---|
-| Beli di warung bayar nanti (utang) + lupa melunasi | "kalo gw beli diwarung tapi bayar nanti boleh ga sih? terus kalo gw lupa dan ga ngebayar gimana?" | di luar 3 kamar; berisi 2 masalah |
-| Menjadi penyedia pinjol | "kalo gw jadi penyedia pinjol apakah haram? dan apa batasan hukum bagi gw yang penyedia pinjol?" | jarang untuk siswa; berisi 2 masalah |
+| R2-05a | Utang sehari-hari | Beli di warung, bayar nanti (utang) | "kalo gw beli diwarung tapi bayar nanti boleh ga sih?…" | ✅ dimasukkan pemilik proyek 19 Nov; di luar 3 kamar irisan → tim perlu cari rujukan tambahan |
+| R2-05b | Utang sehari-hari | Lupa / tidak melunasi utang | "…terus kalo gw lupa dan ga ngebayar gimana?" | dipecah |
+| R2-06a | Pinjol | Menjadi penyedia pinjol: hukumnya | "kalo gw jadi penyedia pinjol apakah haram?…" | ✅ dimasukkan pemilik proyek; rujukan terkait 117/DSN-MUI/II/2018 (cek) |
+| R2-06b | Pinjol | Menjadi penyedia pinjol: batasan/syarat | "…dan apa batasan hukum bagi gw yang penyedia pinjol?" | dipecah |
+
+Catatan: satu "masalah" = satu laci data. Siswa tetap boleh bertanya dua hal sekaligus; pemetaan masalah (Fase 2) membuka beberapa laci.
