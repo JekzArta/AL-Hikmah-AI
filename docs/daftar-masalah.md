@@ -10,8 +10,8 @@
 |---|---|---|---|---|
 | R1-01 | Bersuci | Berbicara saat berwudhu | "Kira kira, boleh ga sih ngobrol sambil berwudhu?" | |
 | R1-02 | Shalat | Pakaian saat shalat (kaos kaki, sweater) | "untuk solat, kalo pake kaos kaki atau sweater boleh ga?" | |
-| R1-03a | Shalat | Makmum telat (masbuq): kapan rakaat terhitung | "batas terhitungnya rakaat saat telat ikut solat makmum itu saat imam ngelakuin apa?…" | dipecah dari satu pertanyaan (usulan Claude) |
-| R1-03b | Shalat | Makmum telat (masbuq): bacaan Al-Fatihah | "…dan wajibnya makmum yang telat itu baca al fatiah dulu atau engga, atau ada aturan lain?" | dipecah dari satu pertanyaan (usulan Claude) |
+| R1-03a | Shalat | Makmum telat (masbuq): kapan rakaat terhitung | "batas terhitungnya rakaat saat telat ikut solat makmum itu saat imam ngelakuin apa?…" | dipecah dari satu pertanyaan (✅ disetujui pemilik proyek, 19 Nov) |
+| R1-03b | Shalat | Makmum telat (masbuq): bacaan Al-Fatihah | "…dan wajibnya makmum yang telat itu baca al fatiah dulu atau engga, atau ada aturan lain?" | dipecah dari satu pertanyaan (✅ disetujui pemilik proyek, 19 Nov) |
 | R1-04 | Puasa | Terlewat sahur karena tertidur | "kalau tidur pas sahur, dan memaksakan puasa tanpa sahur bisa?" | |
 | R1-05 | Shalat | Shalat yang terlewat waktunya (mis. subuh kesiangan) | "solat subuh jam 9 boleh ga sih?" | tanpa angka jam di jawaban (`bergantung_waktu`) |
 
