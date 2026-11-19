@@ -1,0 +1,28 @@
+{"mode":"acak","seed":1,"pertanyaan":"wudhu terus kentut dikit harus ulang ga?","benar":["DUMMY-001"],"peringkat":7,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"acak","seed":1,"pertanyaan":"lupa baca fatihah pas shalat gimana?","benar":["DUMMY-002"],"peringkat":2,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"acak","seed":1,"pertanyaan":"sikat gigi pas puasa boleh ga bro?","benar":["DUMMY-003"],"peringkat":1,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"acak","seed":1,"pertanyaan":"pinjol yang ada bunganya gimana hukumnya?","benar":["DUMMY-004"],"peringkat":6,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"acak","seed":1,"pertanyaan":"beli barang online ga sesuai foto bisa dibatalin?","benar":["DUMMY-005"],"peringkat":5,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"acak","seed":1,"pertanyaan":"paylater kena denda telat itu gimana?","benar":["DUMMY-006"],"peringkat":8,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"acak","seed":1,"pertanyaan":"ketiduran sampe lewat subuh harus gimana?","benar":["DUMMY-008"],"peringkat":4,"top3":["DUMMY-003","DUMMY-002","DUMMY-007"]}
+{"mode":"bm25","pertanyaan":"wudhu terus kentut dikit harus ulang ga?","benar":["DUMMY-001"],"peringkat":1,"top3":["DUMMY-001"]}
+{"mode":"bm25","pertanyaan":"lupa baca fatihah pas shalat gimana?","benar":["DUMMY-002"],"peringkat":1,"top3":["DUMMY-002","DUMMY-008","DUMMY-001"]}
+{"mode":"bm25","pertanyaan":"sikat gigi pas puasa boleh ga bro?","benar":["DUMMY-003"],"peringkat":1,"top3":["DUMMY-003"]}
+{"mode":"bm25","pertanyaan":"pinjol yang ada bunganya gimana hukumnya?","benar":["DUMMY-004"],"peringkat":2,"top3":["DUMMY-001","DUMMY-004","DUMMY-005"]}
+{"mode":"bm25","pertanyaan":"beli barang online ga sesuai foto bisa dibatalin?","benar":["DUMMY-005"],"peringkat":1,"top3":["DUMMY-005","DUMMY-004"]}
+{"mode":"bm25","pertanyaan":"paylater kena denda telat itu gimana?","benar":["DUMMY-006"],"peringkat":1,"top3":["DUMMY-006"]}
+{"mode":"bm25","pertanyaan":"ketiduran sampe lewat subuh harus gimana?","benar":["DUMMY-008"],"peringkat":null,"top3":[]}
+{"mode":"embedding","pertanyaan":"wudhu terus kentut dikit harus ulang ga?","benar":["DUMMY-001"],"peringkat":1,"top3":["DUMMY-001","DUMMY-008","DUMMY-003"]}
+{"mode":"embedding","pertanyaan":"lupa baca fatihah pas shalat gimana?","benar":["DUMMY-002"],"peringkat":1,"top3":["DUMMY-002","DUMMY-008","DUMMY-003"]}
+{"mode":"embedding","pertanyaan":"sikat gigi pas puasa boleh ga bro?","benar":["DUMMY-003"],"peringkat":1,"top3":["DUMMY-003","DUMMY-008","DUMMY-001"]}
+{"mode":"embedding","pertanyaan":"pinjol yang ada bunganya gimana hukumnya?","benar":["DUMMY-004"],"peringkat":1,"top3":["DUMMY-004","DUMMY-006","DUMMY-005"]}
+{"mode":"embedding","pertanyaan":"beli barang online ga sesuai foto bisa dibatalin?","benar":["DUMMY-005"],"peringkat":1,"top3":["DUMMY-005","DUMMY-004","DUMMY-006"]}
+{"mode":"embedding","pertanyaan":"paylater kena denda telat itu gimana?","benar":["DUMMY-006"],"peringkat":1,"top3":["DUMMY-006","DUMMY-004","DUMMY-005"]}
+{"mode":"embedding","pertanyaan":"ketiduran sampe lewat subuh harus gimana?","benar":["DUMMY-008"],"peringkat":1,"top3":["DUMMY-008","DUMMY-006","DUMMY-003"]}
+{"mode":"hybrid","pertanyaan":"wudhu terus kentut dikit harus ulang ga?","benar":["DUMMY-001"],"peringkat":1,"top3":["DUMMY-001","DUMMY-008","DUMMY-003"]}
+{"mode":"hybrid","pertanyaan":"lupa baca fatihah pas shalat gimana?","benar":["DUMMY-002"],"peringkat":1,"top3":["DUMMY-002","DUMMY-008","DUMMY-001"]}
+{"mode":"hybrid","pertanyaan":"sikat gigi pas puasa boleh ga bro?","benar":["DUMMY-003"],"peringkat":1,"top3":["DUMMY-003","DUMMY-008","DUMMY-001"]}
+{"mode":"hybrid","pertanyaan":"pinjol yang ada bunganya gimana hukumnya?","benar":["DUMMY-004"],"peringkat":1,"top3":["DUMMY-004","DUMMY-001","DUMMY-005"]}
+{"mode":"hybrid","pertanyaan":"beli barang online ga sesuai foto bisa dibatalin?","benar":["DUMMY-005"],"peringkat":1,"top3":["DUMMY-005","DUMMY-004","DUMMY-006"]}
+{"mode":"hybrid","pertanyaan":"paylater kena denda telat itu gimana?","benar":["DUMMY-006"],"peringkat":1,"top3":["DUMMY-006","DUMMY-004","DUMMY-005"]}
+{"mode":"hybrid","pertanyaan":"ketiduran sampe lewat subuh harus gimana?","benar":["DUMMY-008"],"peringkat":1,"top3":["DUMMY-008","DUMMY-006","DUMMY-003"]}
